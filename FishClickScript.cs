@@ -5,9 +5,9 @@ public class FishClickScript : MonoBehaviour
 {
     private Vector3 bigScale, smallScale;
 
-    public Text ScoreAmount; //Assign ScoreAmount object to script
+    //public Text ScoreAmount; //Assign ScoreAmount object to script (for seperate score specific to game object)
     public AudioSource FishSplash1; //Assign Audio File to script
-    private int scoreCount; //Integer used with a default of 0 to add to score
+    //private int scoreCount; //Integer used with a default of 0 to add to score (for seperate score specific to game object)
 
     private Vector3 mOffset; //Vector 3 offset used for mouse dragging script
 
@@ -18,14 +18,16 @@ public class FishClickScript : MonoBehaviour
         bigScale = new Vector3(1.8f, 1.8f, 1.8f); //Make object big when called
         smallScale = new Vector3(1f, 1f, 1f); //Make object small when called
 
-        scoreCount = 0; //Default score of zero set as integer
-        ScoreAmount.text = "Score: " + scoreCount; //Assign Score string and Score Count in to Score Amount text object
+        //scoreCount = 0; //Default score of zero set as integer (for seperate score specific to game object)
+        //ScoreAmount.text = "Score: " + scoreCount; //Assign Score string and Score Count in to Score Amount text object (for seperate score specific to game object)
     }
-    
+
     private void OnMouseDown()
     {
-        scoreCount += 10; //Adds 10 to score when mouse is clicked on object
-        ScoreAmount.text = "Score: " + scoreCount; //Updates the Score Amount text object with the new integer (+10) per click
+        //scoreCount += 10; //Adds 10 to score when mouse is clicked on object (for seperate score specific to game object)
+        //ScoreAmount.text = "Score: " + scoreCount; //Updates the Score Amount text object with the new integer (+10) per click (for seperate score specific to game object)
+
+        GlobalScore.CurrentScore += 10;
 
         FishSplash1.GetComponent<AudioSource>().Play(); //Play audio source when mouse is clicked
 
